@@ -1,5 +1,5 @@
 import React from "react";
-import * as usersService from "../utilities/users-service";
+import * as usersService from "../../utilities/users-service";
 
 const UserHomePage = () => {
     async function handleCheckToken() {

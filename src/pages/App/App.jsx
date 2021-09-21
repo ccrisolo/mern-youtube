@@ -1,14 +1,19 @@
 import "./App.css";
 import React, { useState } from "react";
-import NewOrderPage from "../FavoritesPage";
-import AuthPage from "../AuthPage";
-import UserHomePage from "../UserHomePage";
-import { NavBar } from "../../components/NavBar";
+import FavoritesPage from "../FavoritesPage/FavoritesPage";
+import AuthPage from "../Auth/AuthPage";
+import UserHomePage from "../UserHomePage/UserHomePage";
+import { NavBar } from "../../components/NavBar/NavBar";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { getUser } from "../../utilities/users-service";
 
 export default function App() {
     const [user, setUser] = useState(getUser());
+    const [videos, setVideos] = useState([]);
+    const [selectedVideo, setSelectedVideo] = useState("");
+    const [favorites, setFavorites] = useState([]);
+
+
 
     return (
         <main className='App'>
@@ -17,7 +22,7 @@ export default function App() {
                     <NavBar user={user} setUser={setUser} />
                     <Switch>
                         <Route path='/home/favorites'>
-                            <NewOrderPage />
+                            <FavoritesPage />
                         </Route>
                         <Route path='/home'>
                             <UserHomePage />
