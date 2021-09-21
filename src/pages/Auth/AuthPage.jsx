@@ -6,15 +6,17 @@ const AuthPage = ({ setUser }) => {
     const [isLoginForm, setIsLoginForm] = useState(true);
 
     return (
-        <main>
+        <div>
             <h1>Auth Page</h1>
             {isLoginForm ? (
                 <LoginForm setUser={setUser} />
             ) : (
                 <SignUpForm setUser={setUser} />
             )}
-            <button onClick={()  => setIsLoginForm(!isLoginForm)} >{isLoginForm ?  'Create Account' : 'Already a Member, Login'}</button>
-        </main>
+            <button onClick={() => setIsLoginForm(!isLoginForm)}>
+                {isLoginForm ? "Create Account" : "Already a Member, Login"}
+            </button>
+        </div>
     );
 };
 

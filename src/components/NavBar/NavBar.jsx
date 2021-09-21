@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import * as userService from "../../utilities/users-service";
 
 export const NavBar = ({ user, setUser }) => {
-    //Add the logout function
     const handleLogOut = () => {
         //delegate log out to users-service
         userService.logOut();

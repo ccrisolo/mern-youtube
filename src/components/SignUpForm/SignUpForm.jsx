@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { signUp } from "../../utilities/users-service";
+import "./SignUpForm.css";
 
 export default class SignUpForm extends Component {
     state = {
@@ -38,32 +39,36 @@ export default class SignUpForm extends Component {
             <div>
                 <div className='form-container'>
                     <form autoComplete='off' onSubmit={this.handleSubmit}>
-                        <label>Name</label>
+                        <label id='label-name'>Name</label>
                         <input
+                            id='input-name'
                             type='text'
                             name='name'
                             value={this.state.name}
                             onChange={this.handleChange}
                             required
                         />
-                        <label>Email</label>
+                        <label id='label-email'>Email</label>
                         <input
+                            id='input-email'
                             type='email'
                             name='email'
                             value={this.state.email}
                             onChange={this.handleChange}
                             required
                         />
-                        <label>Password</label>
+                        <label id='label-password'>Password</label>
                         <input
+                            id='input-password'
                             type='password'
                             name='password'
                             value={this.state.password}
                             onChange={this.handleChange}
                             required
                         />
-                        <label>Confirm</label>
+                        <label id='label-confirm'>Confirm</label>
                         <input
+                            id='input-confirm'
                             type='password'
                             name='confirm'
                             value={this.state.confirm}

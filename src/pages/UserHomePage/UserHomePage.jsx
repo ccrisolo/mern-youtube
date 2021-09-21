@@ -4,7 +4,6 @@ import * as usersService from "../../utilities/users-service";
 const UserHomePage = () => {
     async function handleCheckToken() {
         const expDate = await usersService.checkToken();
-
         return console.log(expDate);
     }
 
