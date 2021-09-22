@@ -49,9 +49,9 @@ label {
 }
 
 .signup-form-input {
-    border: "none";
-    width: "50vw";
-    height: "4vh";
-    border-radius: "25px";
-    padding-left: "15px";
+    border: none;
+    width: 50vw;
+    height: 4vh;
+    border-radius: 25px;
+    padding-left: 15px;
 }

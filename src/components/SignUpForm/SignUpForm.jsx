@@ -52,13 +52,6 @@ export default class SignUpForm extends Component {
                     >
                         <label>Name</label>
                         <input
-                            style={{
-                                border: "none",
-                                width: "50vw",
-                                height: "4vh",
-                                borderRadius: "25px",
-                                paddingLeft: "15px",
-                            }}
                             className='signup-form-input'
                             type='text'
                             name='name'
@@ -69,13 +62,6 @@ export default class SignUpForm extends Component {
                         />
                         <label>Email</label>
                         <input
-                            style={{
-                                border: "none",
-                                width: "50vw",
-                                height: "4vh",
-                                borderRadius: "25px",
-                                paddingLeft: "15px",
-                            }}
                             className='signup-form-input'
                             type='email'
                             name='email'
@@ -86,13 +72,6 @@ export default class SignUpForm extends Component {
                         />
                         <label>Password</label>
                         <input
-                            style={{
-                                border: "none",
-                                width: "50vw",
-                                height: "4vh",
-                                borderRadius: "25px",
-                                paddingLeft: "15px",
-                            }}
                             className='signup-form-input'
                             type='password'
                             name='password'
@@ -103,13 +82,6 @@ export default class SignUpForm extends Component {
                         />
                         <label>Confirm</label>
                         <input
-                            style={{
-                                border: "none",
-                                width: "50vw",
-                                height: "4vh",
-                                borderRadius: "25px",
-                                paddingLeft: "15px",
-                            }}
                             className='signup-form-input'
                             type='password'
                             name='confirm'
