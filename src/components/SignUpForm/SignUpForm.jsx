@@ -36,48 +36,104 @@ export default class SignUpForm extends Component {
     render() {
         const disable = this.state.password !== this.state.confirm;
         return (
-            <div>
+            <div className='wrapper'>
                 <div className='form-container'>
-                    <form autoComplete='off' onSubmit={this.handleSubmit}>
-                        <label id='label-name'>Name</label>
+                    <form
+                        style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            marginLeft: "45px",
+                            marginRight: "45px",
+                            alignContent: "center",
+                            justifyContent: "center",
+                        }}
+                        autoComplete='off'
+                        onSubmit={this.handleSubmit}
+                    >
+                        <label>Name</label>
                         <input
-                            id='input-name'
+                            style={{
+                                border: "none",
+                                width: "50vw",
+                                height: "4vh",
+                                borderRadius: "25px",
+                                paddingLeft: "15px",
+                            }}
+                            className='signup-form-input'
                             type='text'
                             name='name'
+                            placeholder='Enter Name'
                             value={this.state.name}
                             onChange={this.handleChange}
                             required
                         />
-                        <label id='label-email'>Email</label>
+                        <label>Email</label>
                         <input
-                            id='input-email'
+                            style={{
+                                border: "none",
+                                width: "50vw",
+                                height: "4vh",
+                                borderRadius: "25px",
+                                paddingLeft: "15px",
+                            }}
+                            className='signup-form-input'
                             type='email'
                             name='email'
+                            placeholder='Enter Email'
                             value={this.state.email}
                             onChange={this.handleChange}
                             required
                         />
-                        <label id='label-password'>Password</label>
+                        <label>Password</label>
                         <input
-                            id='input-password'
+                            style={{
+                                border: "none",
+                                width: "50vw",
+                                height: "4vh",
+                                borderRadius: "25px",
+                                paddingLeft: "15px",
+                            }}
+                            className='signup-form-input'
                             type='password'
                             name='password'
+                            placeholder='Enter Password'
                             value={this.state.password}
                             onChange={this.handleChange}
                             required
                         />
-                        <label id='label-confirm'>Confirm</label>
+                        <label>Confirm</label>
                         <input
-                            id='input-confirm'
+                            style={{
+                                border: "none",
+                                width: "50vw",
+                                height: "4vh",
+                                borderRadius: "25px",
+                                paddingLeft: "15px",
+                            }}
+                            className='signup-form-input'
                             type='password'
                             name='confirm'
+                            placeholder='Confirm Password'
                             value={this.state.confirm}
                             onChange={this.handleChange}
                             required
                         />
-                        <button type='submit' disabled={disable}>
-                            SIGN UP
-                        </button>
+                        <div>
+                            <button
+                                style={{
+                                    justifySelf: "center",
+                                    border: "none",
+                                    width: "30vw",
+                                    height: "5vh",
+                                    borderRadius: "25px",
+                                    marginTop: "25px",
+                                }}
+                                type='submit'
+                                disabled={disable}
+                            >
+                                SIGN UP
+                            </button>
+                        </div>
                     </form>
                 </div>
                 <p className='error-message'>&nbsp;{this.state.error}</p>
