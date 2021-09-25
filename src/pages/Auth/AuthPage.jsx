@@ -1,21 +1,37 @@
 import React, { useState } from "react";
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
 import LoginForm from "../../components/LoginForm/LoginForm";
+import "./AuthPage.css";
+import YouTubeImg from "../../assets/YouTube2.png";
 
 const AuthPage = ({ setUser }) => {
-    const [isLoginForm, setIsLoginForm] = useState(true);
+    const [isLoginForm, setIsLoginForm] = useState(false);
 
     return (
-        <div>
-            <h1>Auth Page</h1>
+        <div className='wrapper'>
+            <div className='img-wrapper'>
+                <img
+                    className='youtube-img'
+                    src={YouTubeImg}
+                    alt='YouTube Image'
+                />
+            </div>
             {isLoginForm ? (
-                <LoginForm setUser={setUser} />
+                <LoginForm
+                    className='login-form'
+                    setUser={setUser}
+                    setIsLoginForm={setIsLoginForm}
+                    isLoginForm={isLoginForm}
+                />
             ) : (
-                <SignUpForm setUser={setUser} />
+                <div className='signup-form-wrapper'>
+                    <SignUpForm
+                        setUser={setUser}
+                        setIsLoginForm={setIsLoginForm}
+                        isLoginForm={isLoginForm}
+                    />
+                </div>
             )}
-            <button onClick={() => setIsLoginForm(!isLoginForm)}>
-                {isLoginForm ? "Create Account" : "Already a Member, Login"}
-            </button>
         </div>
     );
 };

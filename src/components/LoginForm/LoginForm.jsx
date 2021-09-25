@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as usersService from "../../utilities/users-service";
 
-export default function LogIn({ setUser }) {
+export default function LogIn({ setUser, isLoginForm, setIsLoginForm }) {
     const [credentials, setCredentials] = useState({
         email: "",
         password: "",
@@ -46,7 +46,13 @@ export default function LogIn({ setUser }) {
                     onChange={handleChange}
                     required
                 />
-                <button type='submit'>Log In</button>
+                <button type='submit'>LOG IN</button>
+                <button
+                    type='submit'
+                    onClick={() => setIsLoginForm(!isLoginForm)}
+                >
+                    NEED AN ACCOUNT?
+                </button>
             </form>
             <p className='error-message'>&nbsp; {error}</p>
         </div>

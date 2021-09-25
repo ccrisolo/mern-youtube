@@ -16,7 +16,7 @@ export default function App() {
 
 
     return (
-        <main className='App'>
+        <div className='App'>
             {user ? (
                 <>
                     <NavBar user={user} setUser={setUser} />
@@ -33,6 +33,6 @@ export default function App() {
             ) : (
                 <AuthPage setUser={setUser} />
             )}
-        </main>
+        </div>
     );
 }
