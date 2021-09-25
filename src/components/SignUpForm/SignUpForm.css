@@ -3,14 +3,12 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     height: 100vh;
-    
 }
 
 .form-container {
     padding: 3vmin;
-    background-color: rgb(50, 48, 48);
     border-radius: 12px;
-    box-shadow: 10px 5px 5px grey;
+    background-color: rgb(35, 35, 35);
 }
 
 label {
@@ -45,8 +43,10 @@ label {
     height: 5vh;
     border-radius: 12px;
     margin-top: 25px;
-    background-color: lightslategrey;
+    background-color: rgb(205, 61, 61);
     cursor: pointer;
+    color: white;
+    
 }
 
 .app-name {
@@ -61,5 +61,22 @@ label {
     color: white;
     text-align: left;
     margin-left: 20px;
-  
+}
+
+@media only screen and (min-width: 700px) {
+    .wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        grid-column: 2 / 3;
+    }
+    label {
+        margin-left: 5px;
+    }
+    .signup-form-input {
+        width: 60vw;
+    }
+    .form-container {
+        grid-column: 2/3;
+        grid-row: 1 /-1;
+        width: auto;
+    }
 }

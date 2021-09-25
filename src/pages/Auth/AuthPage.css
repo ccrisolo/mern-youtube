@@ -1,0 +1,19 @@
+@media only screen and (min-width: 700px) {
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 3px;
+    }
+    .youtube-img {
+        height: 100vh;
+        border-radius: 12px;
+        grid-column: 1;
+        grid-row: 1 / -1;
+    }
+}
+
+@media only screen and (max-width: 699px) {
+    .youtube-img {
+        display: none;
+    }
+}

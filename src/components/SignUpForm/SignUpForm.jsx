@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { signUp } from "../../utilities/users-service";
 import "./SignUpForm.css";
+import YouTubeImg from "../../assets/YouTube.png";
 
 export default class SignUpForm extends Component {
     state = {
@@ -41,8 +42,7 @@ export default class SignUpForm extends Component {
                     <h2 className='app-name'>YouTube</h2>
                     <div>
                         <h1 className='heading'>
-                            Get access to videos
-                            from around the world!
+                            Get access to videos from around the world!
                         </h1>
                     </div>
                     <form autoComplete='off' onSubmit={this.handleSubmit}>
