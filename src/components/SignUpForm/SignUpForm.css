@@ -3,12 +3,14 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     height: 100vh;
+    
 }
 
 .form-container {
     padding: 3vmin;
     background-color: rgb(50, 48, 48);
     border-radius: 12px;
+    box-shadow: 10px 5px 5px grey;
 }
 
 label {
@@ -35,6 +37,16 @@ label {
     height: 5vh;
     border-radius: 12px;
     margin-top: 25px;
+}
+.signup-btn:hover,
+.form-change-btn:hover {
+    border: none;
+    width: 30vw;
+    height: 5vh;
+    border-radius: 12px;
+    margin-top: 25px;
+    background-color: lightslategrey;
+    cursor: pointer;
 }
 
 .app-name {
