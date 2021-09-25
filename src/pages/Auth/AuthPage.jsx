@@ -3,20 +3,24 @@ import SignUpForm from "../../components/SignUpForm/SignUpForm";
 import LoginForm from "../../components/LoginForm/LoginForm";
 
 const AuthPage = ({ setUser }) => {
-    const [isLoginForm, setIsLoginForm] = useState(true);
+    const [isLoginForm, setIsLoginForm] = useState(false);
 
     return (
-        <div>
-            <h1>Auth Page</h1>
+        <>
             {isLoginForm ? (
-                <LoginForm setUser={setUser} />
+                <LoginForm
+                    setUser={setUser}
+                    setIsLoginForm={setIsLoginForm}
+                    isLoginForm={isLoginForm}
+                />
             ) : (
-                <SignUpForm setUser={setUser} />
+                <SignUpForm
+                    setUser={setUser}
+                    setIsLoginForm={setIsLoginForm}
+                    isLoginForm={isLoginForm}
+                />
             )}
-            <button onClick={() => setIsLoginForm(!isLoginForm)}>
-                {isLoginForm ? "Create Account" : "Already a Member, Login"}
-            </button>
-        </div>
+        </>
     );
 };
 

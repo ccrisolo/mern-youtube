@@ -38,18 +38,14 @@ export default class SignUpForm extends Component {
         return (
             <div className='wrapper'>
                 <div className='form-container'>
-                    <form
-                        style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            marginLeft: "45px",
-                            marginRight: "45px",
-                            alignContent: "center",
-                            justifyContent: "center",
-                        }}
-                        autoComplete='off'
-                        onSubmit={this.handleSubmit}
-                    >
+                    <h2 className='app-name'>YouTube</h2>
+                    <div>
+                        <h1 className='heading'>
+                            Get access to videos
+                            from around the world!
+                        </h1>
+                    </div>
+                    <form autoComplete='off' onSubmit={this.handleSubmit}>
                         <label>Name</label>
                         <input
                             className='signup-form-input'
@@ -90,20 +86,26 @@ export default class SignUpForm extends Component {
                             onChange={this.handleChange}
                             required
                         />
-                        <div>
+                        <div className='signup-btn-container'>
                             <button
-                                style={{
-                                    justifySelf: "center",
-                                    border: "none",
-                                    width: "30vw",
-                                    height: "5vh",
-                                    borderRadius: "25px",
-                                    marginTop: "25px",
-                                }}
+                                className='signup-btn'
                                 type='submit'
                                 disabled={disable}
                             >
                                 SIGN UP
+                            </button>
+                        </div>
+                        <div className='form-change-btn-container'>
+                            <button
+                                className='form-change-btn'
+                                type='submit'
+                                onClick={() => {
+                                    this.props.setIsLoginForm(
+                                        !this.props.isLoginForm
+                                    );
+                                }}
+                            >
+                                HAVE AN ACCOUNT?
                             </button>
                         </div>
                     </form>
