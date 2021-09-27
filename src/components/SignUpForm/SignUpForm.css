@@ -2,13 +2,14 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    height: 100vh;
 }
 
 .form-container {
+    max-width: 100%;
+    height: 100vh;
     padding: 3vmin;
     border-radius: 12px;
-    background-color: rgb(35, 35, 35);
+    background-color: rgb(32, 32, 32);
 }
 
 label {
@@ -16,11 +17,12 @@ label {
     display: flex;
     margin-top: 10px;
     margin-bottom: 10px;
-    margin-left: 55px;
+    margin-left: 14%;
     color: white;
 }
 
 .signup-form-input {
+    margin-left: 12.5%;
     border: none;
     width: 60vw;
     height: 5vh;
@@ -31,15 +33,17 @@ label {
 .signup-btn,
 .form-change-btn {
     border: none;
-    width: 50vw;
+    width: 50%;
     height: 5vh;
     border-radius: 12px;
     margin-top: 25px;
+    margin-left: 30%;
 }
+
 .signup-btn:hover,
 .form-change-btn:hover {
     border: none;
-    width: 30vw;
+    width: 50%;
     height: 5vh;
     border-radius: 12px;
     margin-top: 25px;
@@ -67,24 +71,26 @@ label {
 @media only screen and (min-width: 700px) {
     .wrapper {
         position: relative;
+        grid-template-rows: 1fr;
         grid-column: 2;
+        grid-row: 1 / -1;
         left: 0;
         margin-right: 0px;
-        height: 100vh;
+        height: 100%;
         width: 100%;
     }
 
     label {
-        position: relative;
-        margin-left: 125px;
+        margin-left: 12.5%;
     }
 
     .signup-form-input {
-        width: 45vw;
+        margin-left: 12.5%;
+        max-width: 45vw;
+        min-width: 20vw;
     }
 
     .form-container {
-        position: relative;
         max-width: 100vw;
         height: 100%;
         grid-column: 1/3;
@@ -93,11 +99,25 @@ label {
 
     .signup-btn,
     .form-change-btn {
+        position: relative;
         border: none;
-        width: 30vw;
+        width: 40%;
+        height: 5vh;
+        border-radius: 12px;
+        margin-top: 3%;
+        
+    }
+
+    .signup-btn:hover,
+    .form-change-btn:hover {
+        border: none;
+        width: 40%;
         height: 5vh;
         border-radius: 12px;
         margin-top: 25px;
+        background-color: rgb(205, 61, 61);
+        cursor: pointer;
+        color: white;
     }
 
     form {
@@ -108,8 +128,8 @@ label {
         font-family: Tahoma;
         color: white;
         text-align: left;
-        margin-left: 125px;
-        margin-right: 30px;
+        margin-left: 12%;
+        margin-right: 12%;
         margin-top: 50px;
         font-size: 40px;
     }
