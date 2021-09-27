@@ -3,7 +3,7 @@
         position: absolute;
         display: grid;
         grid-template-columns: 608px;
-        grid-gap: 5px;
+        grid-gap: 3px;
     }
     .youtube-img {
         height: auto;
