@@ -65,18 +65,24 @@ label {
 
 @media only screen and (min-width: 700px) {
     .wrapper {
-        grid-template-columns: repeat(2, 1fr);
-        grid-column: 2 / 3;
+        position: relative;
+        grid-column: 2;
+        left: 0;
+        margin-right: 0px;
+        height: 100vh;
+        width: 100%;
     }
     label {
         margin-left: 5px;
     }
     .signup-form-input {
-        width: 60vw;
+        width: 45vw;
     }
     .form-container {
-        grid-column: 2/3;
+        position: relative;
+        max-width: 100vw;
+        height: 100%;
+        grid-column: 1/3;
         grid-row: 1 /-1;
-        width: auto;
     }
 }

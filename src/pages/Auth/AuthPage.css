@@ -1,14 +1,17 @@
 @media only screen and (min-width: 700px) {
     .wrapper {
+        position: absolute;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 3px;
+        grid-template-columns: 608px;
+        grid-gap: 5px;
     }
     .youtube-img {
-        height: 100vh;
+        height: auto;
+        max-width: 100%;
         border-radius: 12px;
-        grid-column: 1;
-        grid-row: 1 / -1;
+    }
+    .signup-form-wrapper {
+        grid-column: 2;
     }
 }
 
