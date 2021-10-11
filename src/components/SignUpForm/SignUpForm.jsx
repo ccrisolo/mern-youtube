@@ -46,16 +46,19 @@ export default class SignUpForm extends Component {
                         </h1>
                     </div>
                     <form autoComplete='off' onSubmit={this.handleSubmit}>
-                        <label>Name</label>
-                        <input
-                            className='signup-form-input'
-                            type='text'
-                            name='name'
-                            placeholder='Enter Name'
-                            value={this.state.name}
-                            onChange={this.handleChange}
-                            required
-                        />
+                        <div>
+                            <label>Name</label>
+                            <input
+                                className='signup-form-input'
+                                type='text'
+                                name='name'
+                                placeholder='Enter Name'
+                                value={this.state.name}
+                                onChange={this.handleChange}
+                                required
+                            />
+                        </div>
+                        <div>
                         <label>Email</label>
                         <input
                             className='signup-form-input'
@@ -66,6 +69,8 @@ export default class SignUpForm extends Component {
                             onChange={this.handleChange}
                             required
                         />
+                        </div>
+                        <div>
                         <label>Password</label>
                         <input
                             className='signup-form-input'
@@ -76,6 +81,8 @@ export default class SignUpForm extends Component {
                             onChange={this.handleChange}
                             required
                         />
+                        </div>
+                        <div>
                         <label>Confirm</label>
                         <input
                             className='signup-form-input'
@@ -86,6 +93,7 @@ export default class SignUpForm extends Component {
                             onChange={this.handleChange}
                             required
                         />
+                        </div>
                         <div className='signup-btn-container'>
                             <button
                                 className='signup-btn'
