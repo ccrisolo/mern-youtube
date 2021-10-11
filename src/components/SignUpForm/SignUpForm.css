@@ -17,12 +17,10 @@ label {
     display: flex;
     margin-top: 10px;
     margin-bottom: 10px;
-    margin-left: 14%;
     color: white;
 }
 
 .signup-form-input {
-    margin-left: 12.5%;
     border: none;
     width: 60vw;
     height: 5vh;
@@ -33,11 +31,17 @@ label {
 .signup-btn,
 .form-change-btn {
     border: none;
-    width: 50%;
+    min-width: 200px;
     height: 5vh;
     border-radius: 12px;
     margin-top: 25px;
-    margin-left: 30%;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .signup-btn:hover,
@@ -80,12 +84,7 @@ label {
         width: 100%;
     }
 
-    label {
-        margin-left: 12.5%;
-    }
-
     .signup-form-input {
-        margin-left: 12.5%;
         max-width: 45vw;
         min-width: 20vw;
     }
@@ -104,8 +103,6 @@ label {
         width: 40%;
         height: 5vh;
         border-radius: 12px;
-        margin-top: 3%;
-        
     }
 
     .signup-btn:hover,
@@ -122,6 +119,10 @@ label {
 
     form {
         margin-top: 70px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
     }
 
     .heading {
