@@ -37,11 +37,24 @@ label {
     margin-top: 25px;
 }
 
-form{
+form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.error-message-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 0, 0);
+    width: 250px;
+    height: 75px;
+    border-radius: 15px;
+}
+.error-message {
+    color: white;
 }
 
 .signup-btn:hover,
@@ -51,7 +64,7 @@ form{
     height: 5vh;
     border-radius: 12px;
     margin-top: 25px;
-    background-color: rgb(205, 61, 61);
+    background-color: rgb(246, 0, 0);
     cursor: pointer;
     color: white;
 }
@@ -112,7 +125,7 @@ form{
         height: 5vh;
         border-radius: 12px;
         margin-top: 25px;
-        background-color: rgb(205, 61, 61);
+        background-color: rgb(255, 0, 0);
         cursor: pointer;
         color: white;
     }

@@ -59,40 +59,40 @@ export default class SignUpForm extends Component {
                             />
                         </div>
                         <div>
-                        <label>Email</label>
-                        <input
-                            className='signup-form-input'
-                            type='email'
-                            name='email'
-                            placeholder='Enter Email'
-                            value={this.state.email}
-                            onChange={this.handleChange}
-                            required
-                        />
+                            <label>Email</label>
+                            <input
+                                className='signup-form-input'
+                                type='email'
+                                name='email'
+                                placeholder='Enter Email'
+                                value={this.state.email}
+                                onChange={this.handleChange}
+                                required
+                            />
                         </div>
                         <div>
-                        <label>Password</label>
-                        <input
-                            className='signup-form-input'
-                            type='password'
-                            name='password'
-                            placeholder='Enter Password'
-                            value={this.state.password}
-                            onChange={this.handleChange}
-                            required
-                        />
+                            <label>Password</label>
+                            <input
+                                className='signup-form-input'
+                                type='password'
+                                name='password'
+                                placeholder='Enter Password'
+                                value={this.state.password}
+                                onChange={this.handleChange}
+                                required
+                            />
                         </div>
                         <div>
-                        <label>Confirm</label>
-                        <input
-                            className='signup-form-input'
-                            type='password'
-                            name='confirm'
-                            placeholder='Confirm Password'
-                            value={this.state.confirm}
-                            onChange={this.handleChange}
-                            required
-                        />
+                            <label>Confirm</label>
+                            <input
+                                className='signup-form-input'
+                                type='password'
+                                name='confirm'
+                                placeholder='Confirm Password'
+                                value={this.state.confirm}
+                                onChange={this.handleChange}
+                                required
+                            />
                         </div>
                         <div className='signup-btn-container'>
                             <button
@@ -117,8 +117,14 @@ export default class SignUpForm extends Component {
                             </button>
                         </div>
                     </form>
+                    {this.state.error && (
+                        <div className='error-message-container'>
+                            <p className='error-message'>
+                                &nbsp;{this.state.error}
+                            </p>
+                        </div>
+                    )}
                 </div>
-                <p className='error-message'>&nbsp;{this.state.error}</p>
             </div>
         );
     }
