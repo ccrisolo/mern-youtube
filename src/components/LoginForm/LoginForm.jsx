@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./LoginForm.css";
 import * as usersService from "../../utilities/users-service";
 
 export default function LogIn({ setUser, isLoginForm, setIsLoginForm }) {
@@ -28,33 +29,60 @@ export default function LogIn({ setUser, isLoginForm, setIsLoginForm }) {
     }
 
     return (
-        <div className='form-container' onSubmit={handleSubmit}>
-            <form autoComplete='off'>
-                <label>Email</label>
-                <input
-                    type='text'
-                    name='email'
-                    value={credentials.email}
-                    onChange={handleChange}
-                    required
-                />
-                <label>Password</label>
-                <input
-                    type='password'
-                    name='password'
-                    value={credentials.password}
-                    onChange={handleChange}
-                    required
-                />
-                <button type='submit'>LOG IN</button>
-                <button
-                    type='submit'
-                    onClick={() => setIsLoginForm(!isLoginForm)}
-                >
-                    NEED AN ACCOUNT?
-                </button>
-            </form>
-            <p className='error-message'>&nbsp; {error}</p>
+        <div className='wrapper'>
+            <div className='form-container'>
+                <h2 className='app-name'>YouTube</h2>
+                <div>
+                    <h1 className='heading'>
+                        Get access to videos from around the world!
+                    </h1>
+                </div>
+                <form autoComplete='off' onSubmit={handleSubmit}>
+                    <div>
+                        <label>Email</label>
+                        <input
+                            className='login-form-input'
+                            type='text'
+                            name='email'
+                            placeholder='Enter Email'
+                            value={credentials.email}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label>Password</label>
+                        <input
+                            className='login-form-input'
+                            type='password'
+                            name='password'
+                            placeholder='Enter Password'
+                            value={credentials.password}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className='login-btn-container'>
+                        <button className='login-btn' type='submit'>
+                            LOG IN
+                        </button>
+                    </div>
+                    <div className='form-change-btn-container'>
+                        <button
+                            className='form-change-btn'
+                            type='submit'
+                            onClick={() => setIsLoginForm(!isLoginForm)}
+                        >
+                            NEED AN ACCOUNT?
+                        </button>
+                    </div>
+                </form>
+                {error && (
+                    <div className='error-message-container'>
+                        <p className='error-message'>&nbsp;{error}</p>
+                    </div>
+                )}
+            </div>
         </div>
     );
 }
