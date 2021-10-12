@@ -10,9 +10,8 @@
         max-width: 100%;
         border-radius: 12px;
     }
-    .signup-form-wrapper {
+    .auth-form-wrapper {
         grid-column: 2;
-        
     }
 }
 
