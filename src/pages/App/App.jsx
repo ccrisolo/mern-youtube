@@ -19,7 +19,7 @@ export default function App() {
                         <Route path='/home/favorites'>
                             <FavoritesPage />
                         </Route>
-                        <Route path='/home'>
+                        <Route forceRefresh={true} path='/home'>
                             <UserHomePage />
                         </Route>
                         <Redirect to='/home' />
