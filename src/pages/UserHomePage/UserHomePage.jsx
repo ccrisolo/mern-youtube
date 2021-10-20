@@ -8,7 +8,6 @@ const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 const UserHomePage = () => {
     const [popularVideos, setPopularVideos] = useState([]);
     const [selectedVideo, setSelectedVideo] = useState(null);
-   
 
     useEffect(() => {
         const popularVideoList = async () => {
@@ -30,14 +29,13 @@ const UserHomePage = () => {
         const loadFirstVideo = () => {
             let firstVideo =
                 popularVideos[Math.floor(Math.random() * popularVideos.length)];
-                // console.log("firstVideo", !firstVideo ? '' : firstVideo.id)
-            setSelectedVideo(!firstVideo ? '' : firstVideo.id);
+            // console.log("firstVideo", !firstVideo ? '' : firstVideo.id)
+            setSelectedVideo(!firstVideo ? "" : firstVideo.id);
         };
         loadFirstVideo();
     }, [popularVideos]);
 
     // console.log("popularVideos", popularVideos);
-    
 
     async function handleCheckToken() {
         const expDate = await usersService.checkToken();
@@ -61,7 +59,7 @@ const UserHomePage = () => {
             </div>
             <h2>Popular Videos</h2>
             <div>
-                <ul>
+                <ul style={{display: 'flex', flexWrap:'wrap'}}>
                     <VideoList videos={popularVideos} />
                 </ul>
             </div>
