@@ -13,7 +13,7 @@ const AuthPage = ({ setUser }) => {
                 <img
                     className='youtube-img'
                     src={YouTubeImg}
-                    alt='YouTube Image'
+                    alt='YouTube Logo'
                 />
             </div>
             <div className='auth-form-wrapper'>
