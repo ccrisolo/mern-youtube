@@ -48,7 +48,17 @@ const UserHomePage = () => {
             <button onClick={handleCheckToken}>
                 Check When My Login Expires
             </button>
-            <div>
+            <div
+                style={{
+                    margin: "60px",
+                    borderRadius: "10px",
+                    backgroundColor: "black",
+                    width: "700px",
+                    height: "400px",
+                    padding: "15px",
+                    boxShadow: "12px 15px 9px -5px rgba(0,0,0,0.51)",
+                }}
+            >
                 <iframe
                     frameBorder='0'
                     height='400px'
@@ -59,7 +69,7 @@ const UserHomePage = () => {
             </div>
             <h2>Popular Videos</h2>
             <div>
-                <ul style={{display: 'flex', flexWrap:'wrap'}}>
+                <ul style={{ display: "flex", flexWrap: "wrap" }}>
                     <VideoList videos={popularVideos} />
                 </ul>
             </div>
