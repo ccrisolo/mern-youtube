@@ -11,18 +11,3 @@ export default axios.create({
     
 });
 
-// const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
-
-// export const fetchPopular = async () => {
-//     let response = await fetch(BASE_URL + "/videos", {
-//         method: "GET",
-//         headers: {
-//             "Content-type": "application/json",
-//             Authorization: "Bearer" + usersService.getToken(),
-//             "X-API-KEY": "API_KEY",
-//         },
-//     });
-
-//     let data = response.json();
-//     console.log("data", data);
-// };

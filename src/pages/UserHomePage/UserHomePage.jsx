@@ -1,45 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import * as usersService from "../../utilities/users-service";
 import youtubeAPI from "../../utilities/youtube-api";
 
 const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 
 const UserHomePage = () => {
-    // const [videos, setVideos] = useState([]);
+    const [videos, setVideos] = useState([]);
     // const [selectedVideo, setSelectedVideo] = useState("");
     // const [favorites, setFavorites] = useState([]);
 
-  
-
     useEffect(() => {
-        const videoList = async () => {
-            const response = await youtubeAPI.get("search", {
+        const popularVideoList = async () => {
+            const response = await youtubeAPI.get("videos", {
                 params: {
-                    part: "snippet",
+                    part: ["snippet", "contentDetails", "statistics"],
+                    chart: "mostPopular",
+                    regionCode: "US",
                     maxResults: 8,
                     key: API_KEY,
-                    q:'basketball'
                 },
             })
             console.log("response", response.data.items)
         };
-        videoList()
+        popularVideoList()
     }, []);
-    // useEffect(() => {
-    //     const videoList = async () => {
-    //         const response = await youtubeAPI.get("youtube.search.list", {
-    //             params: {
-    //                 part: "snippet",
-    //                 chart: "mostPopular",
-    //                 regionCode: "us",
-    //                 maxResults: 8,
-    //                 key: API_KEY,
-    //             },
-    //         })
-    //         console.log("response", response)
-    //     };
-    //     videoList()
-    // }, []);
+  
 
     async function handleCheckToken() {
         const expDate = await usersService.checkToken();
