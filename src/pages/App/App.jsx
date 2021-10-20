@@ -9,11 +9,6 @@ import { getUser } from "../../utilities/users-service";
 
 export default function App() {
     const [user, setUser] = useState(getUser());
-    const [videos, setVideos] = useState([]);
-    const [selectedVideo, setSelectedVideo] = useState("");
-    const [favorites, setFavorites] = useState([]);
-
-
 
     return (
         <div className='App'>

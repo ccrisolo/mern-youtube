@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { signUp } from "../../utilities/users-service";
 import "./SignUpForm.css";
-import YouTubeImg from "../../assets/YouTube.png";
 
 export default class SignUpForm extends Component {
     state = {
