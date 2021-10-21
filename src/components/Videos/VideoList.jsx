@@ -1,8 +1,8 @@
 import React from "react";
 
-const VideoList = ({ videos }) => {
+const VideoList = ({ videos, handleSelectedVideo }) => {
     return videos.map((video, id) => (
-        <li style={{ listStyle: "none" , margin: '20px'}} key={id}>
+        <li style={{ listStyle: "none" , margin: '20px'}} key={id} onClick={() => handleSelectedVideo(video)} >
             <img alt='thumbnail' src={video.snippet.thumbnails.medium.url} />
             <div style={{width: '300px' }}>
                 <span>{video.snippet.title}</span>

@@ -9,6 +9,12 @@ const UserHomePage = () => {
     const [popularVideos, setPopularVideos] = useState([]);
     const [selectedVideo, setSelectedVideo] = useState(null);
 
+    function handleSelectedVideo(video) {
+        //takes selected thumbnail id and sets it to selectedVideo
+        // console.log("video.id", video.id);
+        setSelectedVideo(video.id);
+    }
+
     useEffect(() => {
         const popularVideoList = async () => {
             const response = await youtubeAPI.get("videos", {
@@ -29,7 +35,6 @@ const UserHomePage = () => {
         const loadFirstVideo = () => {
             let firstVideo =
                 popularVideos[Math.floor(Math.random() * popularVideos.length)];
-            // console.log("firstVideo", !firstVideo ? '' : firstVideo.id)
             setSelectedVideo(!firstVideo ? "" : firstVideo.id);
         };
         loadFirstVideo();
@@ -55,11 +60,12 @@ const UserHomePage = () => {
                     backgroundColor: "black",
                     width: "700px",
                     height: "400px",
-                    padding: "15px",
+                    padding: "8px",
                     boxShadow: "12px 15px 9px -5px rgba(0,0,0,0.51)",
                 }}
             >
                 <iframe
+                    allowFullScreen
                     frameBorder='0'
                     height='400px'
                     width='700px'
@@ -70,7 +76,11 @@ const UserHomePage = () => {
             <h2>Popular Videos</h2>
             <div>
                 <ul style={{ display: "flex", flexWrap: "wrap" }}>
-                    <VideoList videos={popularVideos} />
+                    <VideoList
+                        videos={popularVideos}
+                        handleSelectedVideo={handleSelectedVideo}
+                        setSelectedVideo={setSelectedVideo}
+                    />
                 </ul>
             </div>
         </div>
