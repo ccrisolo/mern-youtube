@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import * as usersService from "../../utilities/users-service";
 import youtubeAPI from "../../utilities/youtube-api";
 import VideoList from "../../components/Videos/VideoList";
-import { faHandshakeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 
@@ -12,8 +11,8 @@ const UserHomePage = () => {
 
     function handleSelectedVideo(video) {
         //takes selected thumbnail id and sets it to selectedVideo
-        console.log("video", video);
-        setSelectedVideo(video);
+        console.log("video.id", video.id);
+        setSelectedVideo(video.id);
     }
 
     useEffect(() => {
