@@ -11,7 +11,7 @@ const UserHomePage = () => {
 
     function handleSelectedVideo(video) {
         //takes selected thumbnail id and sets it to selectedVideo
-        console.log("video.id", video.id);
+        // console.log("video.id", video.id);
         setSelectedVideo(video.id);
     }
 
@@ -36,7 +36,6 @@ const UserHomePage = () => {
             let firstVideo =
                 popularVideos[Math.floor(Math.random() * popularVideos.length)];
             setSelectedVideo(!firstVideo ? "" : firstVideo.id);
-            // setSelectedVideo(firstVideo.id);
         };
         loadFirstVideo();
     }, [popularVideos]);
@@ -66,7 +65,7 @@ const UserHomePage = () => {
                 }}
             >
                 <iframe
-                allowFullScreen
+                    allowFullScreen
                     frameBorder='0'
                     height='400px'
                     width='700px'
