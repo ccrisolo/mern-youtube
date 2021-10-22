@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import * as userService from "../../utilities/users-service";
+import { F } from "@fortawesome/react-fontawesome";
 
 export const NavBar = ({ user, setUser }) => {
     const handleLogOut = () => {
@@ -11,11 +12,31 @@ export const NavBar = ({ user, setUser }) => {
     };
 
     return (
-        <nav>
+        <nav
+            style={{
+                display: "flex",
+                justifyContent: "space-evenly",
+                alignItems: "center",
+                marginTop: "15px",
+            }}
+        >
             <Link to='/home'>Home</Link>
-            &nbsp; | &nbsp;
             <Link to='/home/favorites'>Favorites</Link>
-            &nbsp;&nbsp;<span>Welcome {user.name}</span>
+            &nbsp;&nbsp;
+            <div role='search' onSubmit={() => {}}>
+                <input
+                    placeholder='Search'
+                    style={{
+                        height: "30px",
+                        width: "700px",
+                        paddingLeft: "10px",
+                    }}
+                />
+                <button style={{ height: "36px", width: "50px" }}>GO</button>
+            </div>
+            <span style={{ fontFamily: "sans-serif" }}>
+                Welcome {user.name}
+            </span>
             &nbsp;&nbsp;
             <Link to='' onClick={handleLogOut}>
                 Log Out

@@ -9,6 +9,15 @@ const UserHomePage = () => {
     const [popularVideos, setPopularVideos] = useState([]);
     const [selectedVideo, setSelectedVideo] = useState(null);
 
+
+    //handleSearch
+    //input takes in a string
+    //string gets sent to fetch endpoint
+    //get first 10 results
+
+
+
+
     function handleSelectedVideo(video) {
         //takes selected thumbnail id and sets it to selectedVideo
         // console.log("video.id", video.id);
@@ -49,26 +58,28 @@ const UserHomePage = () => {
 
     return (
         <div>
-            <h1>User Home Page</h1>
+            {/* <h1>User Home Page</h1>
             <button onClick={handleCheckToken}>
                 Check When My Login Expires
-            </button>
+            </button> */}
             <div
+            className="iframe-wrapper"
                 style={{
+                    display:'flex',
                     margin: "60px",
                     borderRadius: "10px",
                     backgroundColor: "black",
-                    width: "700px",
-                    height: "400px",
+                    height: "700px",
+                    width: "1100px",
                     padding: "8px",
-                    boxShadow: "12px 15px 9px -5px rgba(0,0,0,0.51)",
+                    // boxShadow: "12px 15px 9px -5px rgba(0,0,0,0.51)",
                 }}
             >
                 <iframe
                     allowFullScreen
                     frameBorder='0'
-                    height='400px'
-                    width='700px'
+                    height='700px'
+                    width='1100px'
                     title='Video Player'
                     src={`https://www.youtube-nocookie.com/embed/${selectedVideo}`}
                 />
