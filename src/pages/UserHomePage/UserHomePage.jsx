@@ -51,10 +51,10 @@ const UserHomePage = () => {
 
     // console.log("popularVideos", popularVideos);
 
-    async function handleCheckToken() {
-        const expDate = await usersService.checkToken();
-        return console.log(expDate);
-    }
+    // async function handleCheckToken() {
+    //     const expDate = await usersService.checkToken();
+    //     return console.log(expDate);
+    // }
 
     return (
         <div>
