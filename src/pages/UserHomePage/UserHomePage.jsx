@@ -53,39 +53,23 @@ const UserHomePage = () => {
     // }
 
     return (
-        <div style={{ display: "flex" }}>
-            <div
-                className='iframe-wrapper'
-                style={{
-                    display: "flex",
-                    margin: "60px",
-                    borderRadius: "10px",
-                    backgroundColor: "black",
-                    height: "700px",
-                    width: "1100px",
-                    padding: "8px",
-                    marginTop:'40px'
-                }}
-            >
-                <iframe
-                    allowFullScreen
-                    frameBorder='0'
-                    height='700px'
-                    width='1100px'
-                    title='Video Player'
-                    src={`https://www.youtube-nocookie.com/embed/${selectedVideo}`}
+        <div style={{ display: "flex", marginTop: "30px", marginLeft: "2%" }}>
+            <iframe
+                allowFullScreen
+                frameBorder='0'
+                height='700px'
+                width='11000px'
+                title='Video Player'
+                src={`https://www.youtube-nocookie.com/embed/${selectedVideo}`}
+            />
+            <ul>
+                <span style={{ fontWeight: "600" }}>Popular Videos</span>
+                <VideoList
+                    videos={popularVideos}
+                    handleSelectedVideo={handleSelectedVideo}
+                    setSelectedVideo={setSelectedVideo}
                 />
-            </div>
-            <div>
-                <ul style={{ display: "flex", flexWrap: "wrap" }}>
-                    <h2>Popular Videos</h2>
-                    <VideoList
-                        videos={popularVideos}
-                        handleSelectedVideo={handleSelectedVideo}
-                        setSelectedVideo={setSelectedVideo}
-                    />
-                </ul>
-            </div>
+            </ul>
         </div>
     );
 };

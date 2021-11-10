@@ -3,7 +3,14 @@ import React from "react";
 const VideoList = ({ videos, handleSelectedVideo }) => {
     return videos.map((video, id) => (
         <li
-            style={{ display: "flex", listStyle: "none", margin: "5px" }}
+            style={{
+                display: "flex",
+                listStyle: "none",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "5%",
+                marginTop: "2%",
+            }}
             key={id}
             onClick={() => handleSelectedVideo(video)}
         >
@@ -13,8 +20,9 @@ const VideoList = ({ videos, handleSelectedVideo }) => {
                 width='168px'
                 src={video.snippet.thumbnails.medium.url}
             />
-            <div style={{ width: "200px", margin: "15px" }}>
-                <span>{video.snippet.title}</span>
+            <div style={{ width: "250px" }}>
+                <span style={{ fontWeight: "600" }}>{video.snippet.title}</span>
+                <br />
                 <span>{video.snippet.channelTitle}</span>
             </div>
         </li>
