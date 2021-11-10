@@ -10,6 +10,7 @@ const UserHomePage = () => {
     const [popularVideos, setPopularVideos] = useState([]);
     const [selectedVideo, setSelectedVideo] = useState(null);
     const [selectedVideoTitle, setSelectedVideoTitle] = useState(null);
+    const [publishDate, setPublishDate] = useState(null);
 
     //handleSearch
     //input takes in a string
@@ -19,8 +20,9 @@ const UserHomePage = () => {
     function handleSelectedVideo(video) {
         //takes selected thumbnail id and sets it to selectedVideo
         // console.log("video.id", video.id);
-        console.log("video", video.snippet.title);
+        console.log("video", video.snippet);
         setSelectedVideoTitle(video.snippet.title);
+        setPublishDate(video.snippet.publishedAt)
         setSelectedVideo(video.id);
     }
 
@@ -46,6 +48,7 @@ const UserHomePage = () => {
                 popularVideos[Math.floor(Math.random() * popularVideos.length)];
             setSelectedVideo(!firstVideo ? "" : firstVideo.id);
             setSelectedVideoTitle(!firstVideo ? "" : firstVideo.snippet.title);
+            setPublishDate(!firstVideo ? "" : firstVideo.snippet.publishedAt);
         };
         loadFirstVideo();
     }, [popularVideos]);
@@ -67,6 +70,7 @@ const UserHomePage = () => {
                     src={`https://www.youtube-nocookie.com/embed/${selectedVideo}`}
                 />
                 <h2>{selectedVideoTitle}</h2>
+                <p>{publishDate}</p>
             </div>
             <div className='list-wrapper'>
                 <ul>

@@ -20,7 +20,13 @@ const VideoList = ({ videos, handleSelectedVideo }) => {
                 width='168px'
                 src={video.snippet.thumbnails.medium.url}
             />
-            <div style={{ width: "250px" }}>
+            <div
+                style={{
+                    width: "250px",
+                    display: "flex",
+                    flexDirection: "column",
+                }}
+            >
                 <span style={{ fontWeight: "600" }}>{video.snippet.title}</span>
                 <br />
                 <span>{video.snippet.channelTitle}</span>
