@@ -13,7 +13,7 @@
 }
 
 label {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Roboto, Geneva, Verdana, sans-serif;
     display: flex;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -70,14 +70,14 @@ form {
 }
 
 .app-name {
-    font-family: Tahoma;
+    font-family: Roboto;
     color: white;
     text-align: right;
     margin-right: 20px;
 }
 
 .heading {
-    font-family: Tahoma;
+    font-family: Roboto;
     color: white;
     text-align: left;
     margin-left: 60px;
@@ -139,7 +139,7 @@ form {
     }
 
     .heading {
-        font-family: Tahoma;
+        font-family: Roboto;
         color: white;
         text-align: left;
         margin-left: 12%;
