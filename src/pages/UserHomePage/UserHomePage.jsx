@@ -53,7 +53,7 @@ const UserHomePage = () => {
     // }
 
     return (
-        <div style={{ display: "flex" }}>
+        <div style={{ display: "flex", backgroundColor:'black', fontFamily:'Roboto' }}>
             <div
                 className='iframe-wrapper'
                 style={{
@@ -61,8 +61,8 @@ const UserHomePage = () => {
                     margin: "60px",
                     borderRadius: "10px",
                     backgroundColor: "black",
-                    height: "700px",
-                    width: "1100px",
+                    width: "907px",
+                    height: "510px",
                     padding: "8px",
                     marginTop:'40px'
                 }}
@@ -70,14 +70,14 @@ const UserHomePage = () => {
                 <iframe
                     allowFullScreen
                     frameBorder='0'
-                    height='700px'
-                    width='1100px'
+                    width='907px'
+                    height='510px'
                     title='Video Player'
                     src={`https://www.youtube-nocookie.com/embed/${selectedVideo}`}
                 />
             </div>
             <div>
-                <ul style={{ display: "flex", flexWrap: "wrap" }}>
+                <ul style={{ display: "flex", flexWrap: "wrap", color:'white', backgroundColor:'black' }}>
                     <h2>Popular Videos</h2>
                     <VideoList
                         videos={popularVideos}

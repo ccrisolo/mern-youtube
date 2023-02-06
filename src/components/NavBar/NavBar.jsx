@@ -18,10 +18,12 @@ export const NavBar = ({ user, setUser }) => {
                 justifyContent: "space-evenly",
                 alignItems: "center",
                 marginTop: "15px",
+                backgroundColor:'black',
+                fontFamily:'Roboto'
             }}
         >
-            <Link to='/home'>Home</Link>
-            <Link to='/home/favorites'>Favorites</Link>
+            <Link style={{color: 'red'}} to='/home'>Home</Link>
+            <Link style={{color: 'red'}} to='/home/favorites'>Favorites</Link>
             &nbsp;&nbsp;
             <div role='search' onSubmit={() => {}}>
                 <input
@@ -34,11 +36,11 @@ export const NavBar = ({ user, setUser }) => {
                 />
                 <button style={{ height: "36px", width: "50px" }}>GO</button>
             </div>
-            <span style={{ fontFamily: "sans-serif" }}>
+            <span style={{ fontFamily: "Roboto", color:'white' }}>
                 Welcome {user.name}
             </span>
             &nbsp;&nbsp;
-            <Link to='' onClick={handleLogOut}>
+            <Link style={{color: 'red'}} to='' onClick={handleLogOut}>
                 Log Out
             </Link>
         </nav>
