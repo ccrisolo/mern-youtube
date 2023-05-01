@@ -20,21 +20,34 @@ const UserHomePage = () => {
         setSelectedVideo(video.id);
     }
 
+    const popularVideoList = async () => {
+        const response = await youtubeAPI.get("videos", {
+            params: {
+                part: "snippet",
+                chart: "mostPopular",
+                regionCode: "US",
+                maxResults: 10,
+                key: API_KEY,
+            },
+        });
+        setPopularVideos(response.data.items);
+    };
+    const videoStatistics = async () => {
+        const response = await youtubeAPI.get("videos", {
+            params: {
+                part: "statistics",
+                regionCode: "US",
+                key: API_KEY,
+            },
+        });
+        return console.log('response', response);
+    };
+
     useEffect(() => {
-        const popularVideoList = async () => {
-            const response = await youtubeAPI.get("videos", {
-                params: {
-                    part: "snippet",
-                    chart: "mostPopular",
-                    regionCode: "US",
-                    maxResults: 10,
-                    key: API_KEY,
-                },
-            });
-            setPopularVideos(response.data.items);
-        };
         popularVideoList();
+        videoStatistics()
     }, []);
+
 
     useEffect(() => {
         const loadFirstVideo = () => {
@@ -52,8 +65,16 @@ const UserHomePage = () => {
     //     return console.log(expDate);
     // }
 
+    console.log('popularVideos', popularVideos)
+
     return (
-        <div style={{ display: "flex", backgroundColor:'black', fontFamily:'Roboto' }}>
+        <div
+            style={{
+                display: "flex",
+                backgroundColor: "black",
+                fontFamily: "Roboto",
+            }}
+        >
             <div
                 className='iframe-wrapper'
                 style={{
@@ -64,7 +85,7 @@ const UserHomePage = () => {
                     width: "907px",
                     height: "510px",
                     padding: "8px",
-                    marginTop:'40px'
+                    marginTop: "40px",
                 }}
             >
                 <iframe
@@ -77,8 +98,17 @@ const UserHomePage = () => {
                 />
             </div>
             <div>
-                <ul style={{ display: "flex", flexWrap: "wrap", color:'white', backgroundColor:'black' }}>
-                    <h2>Popular Videos</h2>
+                <ul
+                    style={{
+                        // display: "flex",
+                        // flexWrap: "wrap",
+                        color: "white",
+                        backgroundColor: "black",
+                    }}
+                >
+                    <div>
+                        <h2>Popular Videos</h2>
+                    </div>
                     <VideoList
                         videos={popularVideos}
                         handleSelectedVideo={handleSelectedVideo}

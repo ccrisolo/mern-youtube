@@ -37,12 +37,13 @@ export const NavBar = ({ user, setUser }) => {
                 <button style={{ height: "36px", width: "50px" }}>GO</button>
             </div>
             <span style={{ fontFamily: "Roboto", color:'white' }}>
-                Welcome {user.name}
+                Welcome 
+                {/* {user.name} */}
             </span>
-            &nbsp;&nbsp;
+            {/* &nbsp;&nbsp;
             <Link style={{color: 'red'}} to='' onClick={handleLogOut}>
                 Log Out
-            </Link>
+            </Link> */}
         </nav>
     );
 };

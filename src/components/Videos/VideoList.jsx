@@ -15,7 +15,9 @@ const VideoList = ({ videos, handleSelectedVideo }) => {
             />
             <div style={{ width: "200px", margin: "15px" }}>
                 <span>{video.snippet.title}</span>
-                <span>{video.snippet.channelTitle}</span>
+                <div>
+                    <span>{video.snippet.channelTitle}</span>
+                </div>
             </div>
         </li>
     ));
