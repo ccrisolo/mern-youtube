@@ -1,0 +1,29 @@
+.home-page-container {
+    /* background-color: blue; */
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 60% 40%;
+    grid-template-areas: 
+    "iframe-container" "video-list-container"
+    ;
+    font-family: Roboto;
+    gap: 20px;
+}
+
+.iframe-container {
+    grid-area: "iframe-container";
+    /* background-color: red; */
+    padding: 3%;
+    aspect-ratio: 16/9;
+}
+
+.video-list-container {
+    grid-area: "video-list-container";
+    /* background-color: green; */
+    overflow: auto;
+    text-overflow: ellipsis;
+    height: 100vh;
+    margin-right: 5%;
+}
