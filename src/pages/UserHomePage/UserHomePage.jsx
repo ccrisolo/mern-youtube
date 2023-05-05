@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import * as usersService from "../../utilities/users-service";
 import youtubeAPI from "../../utilities/youtube-api";
 import VideoList from "../../components/Videos/VideoList";
+import "../../styles/homePageStyle.css";
 
 const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 
@@ -9,43 +10,38 @@ const UserHomePage = () => {
     const [popularVideos, setPopularVideos] = useState([]);
     const [selectedVideo, setSelectedVideo] = useState(null);
 
-    //handleSearch
-    //input takes in a string
-    //string gets sent to fetch endpoint
-    //get first 10 results
+    async function getPopularVideoList() {
+        const response = await youtubeAPI.get("videos", {
+            params: {
+                part: "snippet, statistics, status, contentDetails",
+                chart: "mostPopular",
+                regionCode: "US",
+                maxResults: 25,
+                key: API_KEY,
+            },
+        });
+        console.log("getPopularVideoList response", response);
+        setPopularVideos(response.data.items);
+    }
 
     function handleSelectedVideo(video) {
         //takes selected thumbnail id and sets it to selectedVideo
-        // console.log("video.id", video.id);
         setSelectedVideo(video.id);
     }
 
+    function loadFirstVideo() {
+        let firstVideo =
+            popularVideos[Math.floor(Math.random() * popularVideos.length)];
+        setSelectedVideo(!firstVideo ? "" : firstVideo.id);
+    }
+
     useEffect(() => {
-        const popularVideoList = async () => {
-            const response = await youtubeAPI.get("videos", {
-                params: {
-                    part: "snippet",
-                    chart: "mostPopular",
-                    regionCode: "US",
-                    maxResults: 10,
-                    key: API_KEY,
-                },
-            });
-            setPopularVideos(response.data.items);
-        };
-        popularVideoList();
+        getPopularVideoList();
     }, []);
 
     useEffect(() => {
-        const loadFirstVideo = () => {
-            let firstVideo =
-                popularVideos[Math.floor(Math.random() * popularVideos.length)];
-            setSelectedVideo(!firstVideo ? "" : firstVideo.id);
-        };
         loadFirstVideo();
     }, [popularVideos]);
-
-    // console.log("popularVideos", popularVideos);
 
     // async function handleCheckToken() {
     //     const expDate = await usersService.checkToken();
@@ -53,32 +49,24 @@ const UserHomePage = () => {
     // }
 
     return (
-        <div style={{ display: "flex", backgroundColor:'black', fontFamily:'Roboto' }}>
-            <div
-                className='iframe-wrapper'
-                style={{
-                    display: "flex",
-                    margin: "60px",
-                    borderRadius: "10px",
-                    backgroundColor: "black",
-                    width: "907px",
-                    height: "510px",
-                    padding: "8px",
-                    marginTop:'40px'
-                }}
-            >
+        <div className='home-page-container'>
+            <div className='iframe-container'>
                 <iframe
                     allowFullScreen
                     frameBorder='0'
-                    width='907px'
-                    height='510px'
+                    width={"100%"}
+                    height={"100%"}
                     title='Video Player'
                     src={`https://www.youtube-nocookie.com/embed/${selectedVideo}`}
                 />
             </div>
-            <div>
-                <ul style={{ display: "flex", flexWrap: "wrap", color:'white', backgroundColor:'black' }}>
-                    <h2>Popular Videos</h2>
+            <div className='video-list-container'>
+                <ul
+                    style={{
+                        color: "white",
+                    }}
+                >
+                    <h2 style={{ textAlign: "center" }}>Popular Videos</h2>
                     <VideoList
                         videos={popularVideos}
                         handleSelectedVideo={handleSelectedVideo}

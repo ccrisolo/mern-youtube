@@ -12,7 +12,20 @@ export default function App() {
 
     return (
         <div className='App'>
-            {user ? (
+            <>
+                <NavBar />
+                <Switch>
+                    <Route path='/home/favorites'>
+                        <FavoritesPage />
+                    </Route>
+                    <Route path='/home'>
+                        <UserHomePage />
+                    </Route>
+                    <Redirect to='/home' />
+                </Switch>
+            </>
+
+            {/* {user ? (
                 <>
                     <NavBar user={user} setUser={setUser} />
                     <Switch>
@@ -27,7 +40,7 @@ export default function App() {
                 </>
             ) : (
                 <AuthPage setUser={setUser} />
-            )}
+            )} */}
         </div>
     );
 }
