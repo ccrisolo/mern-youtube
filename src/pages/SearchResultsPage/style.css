@@ -1,0 +1,63 @@
+.search-result-container li:hover {
+    background-color: black;
+    cursor: pointer;
+}
+
+.search-results-page {
+    background-color: #181818;
+    min-height: 100vh;
+    padding-top: 2rem;
+}
+
+.search-results-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.video-thumbnail {
+    display: flex;
+    width: 90%;
+    max-width: 600px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.video-thumbnail:hover {
+    background-color: #272727;
+}
+
+.video-thumbnail-image {
+    width: 168px;
+    height: 94px;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+.video-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.video-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.video-channel {
+    font-size: 14px;
+    color: grey;
+}

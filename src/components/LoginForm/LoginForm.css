@@ -79,9 +79,9 @@ form {
 .heading {
     font-family: Roboto;
     color: white;
-    text-align: left;
+    /* text-align: left;
     margin-left: 60px;
-    margin-right: 32px;
+    margin-right: 32px; */
     font-size: 40px;
 }
 
