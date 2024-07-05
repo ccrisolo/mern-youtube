@@ -9,9 +9,9 @@ const VideoList = ({ videos, handleSelectedVideo }) => {
        const duration = video?.contentDetails?.duration
        const durationInMinutes = Math.floor(moment.duration(duration).asMinutes());
        const durationInSeconds = moment.duration(duration).seconds();
-       console.log('duration', duration)
-       console.log('durationInMinutes', durationInMinutes)
-       console.log('durationInSeconds', durationInSeconds)
+    //    console.log('duration', duration)
+    //    console.log('durationInMinutes', durationInMinutes)
+    //    console.log('durationInSeconds', durationInSeconds)
    })
 
     
@@ -32,7 +32,6 @@ const VideoList = ({ videos, handleSelectedVideo }) => {
             <div
                 style={{
                     padding: "2%",
-                    overflow: "hidden",
                 }}
             >
                 <span

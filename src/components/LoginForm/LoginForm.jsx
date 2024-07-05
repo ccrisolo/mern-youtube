@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import "./LoginForm.css";
 import * as usersService from "../../utilities/users-service";
 
-export default function LogIn({ setUser, isLoginForm, setIsLoginForm }) {
+export default function LogIn({ setLoggedInUser, isLoginForm, setIsLoginForm }) {
+    const history = useHistory();
     const [credentials, setCredentials] = useState({
         email: "",
         password: "",
@@ -17,13 +19,16 @@ export default function LogIn({ setUser, isLoginForm, setIsLoginForm }) {
     async function handleSubmit(evt) {
         //prevent form from being submitted to the server
         evt.preventDefault();
-        try {
-            // The promise returned by the signUp service method
-            // will resolve to the user object included in the
-            // payload of the JSON Web Token (JWT)
-            const user = await usersService.login(credentials);
-            setUser(user);
-        } catch {
+
+        // The promise returned by the signUp service method
+        // will resolve to the user object included in the
+        // payload of the JSON Web Token (JWT)
+        const user = await usersService.login(credentials);
+        if (user) {
+            console.log("user", user);
+            setLoggedInUser(user);
+            history.push("/home");
+        } else {
             setError("Log In Failed - Try Again");
         }
     }
@@ -31,11 +36,18 @@ export default function LogIn({ setUser, isLoginForm, setIsLoginForm }) {
     return (
         <div className='wrapper'>
             <div className='form-container'>
-                <h2 className='app-name'>YouTube</h2>
-                <div>
-                    <h1 className='heading'>
-                        Get access to videos from around the world!
-                    </h1>
+                <div
+                    style={{
+                        display: "flex",
+                        alignItems: "center",
+                        flexDirection: "column",
+                        color: "white",
+                        fontFamily: "Roboto",
+                        paddingTop: "8%",
+                    }}
+                >
+                    <h1>Welcome to my YouTube Clone.</h1>
+                    <h2>Sign in to access additional features</h2>
                 </div>
                 <form autoComplete='off' onSubmit={handleSubmit}>
                     <div>

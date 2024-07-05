@@ -1,0 +1,179 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(19, 19, 19);
+    font-family: "Roboto";
+    padding: 1%;
+    font-weight: bold;
+    width: 100%;
+    font-size: 17px;
+    z-index: 1000; /* Ensures it stays above other content */
+
+    @media (max-width: 768px) {
+        /* Adjust styles for smaller screens */
+        flex-direction: row; /* Maintain the row layout */
+        flex-wrap: wrap; /* Allow elements to wrap if necessary */
+        padding: 0% 0;
+    }
+
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+
+    @media (max-width: 768px) {
+        margin: 10px 0;
+    }
+}
+
+.nav-link:hover{
+    cursor: pointer;
+    color: red;
+}
+
+.search-container {
+    display: flex;
+}
+
+.search-input {
+    height: 40px;
+    width: 600px;
+    padding-left: 30px;
+    border-radius: 20px;
+    background-color: black;
+    font-size: 16px;
+    border: none;
+    color: white;
+    outline: none;
+    box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+.search-button {
+    height: 40px;
+    width: 50px;
+    border-radius: 10px;
+    border: none;
+    margin-left: 10px;
+}
+
+.search-button:hover{
+    cursor: pointer;
+}
+
+.welcome-message {
+    color: white;
+    /* margin-left: auto; */
+
+    @media (max-width: 768px) {
+        margin-top: 10px;
+        margin-left: 0;
+    }
+}
+
+.log-out-btn{
+    color: white;
+    background-color:transparent;
+    border: none;
+}
+
+.log-out-btn:hover{
+    color: red;
+    cursor: pointer;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 15px;
+    background-color: rgb(19, 19, 19);
+    font-family: Roboto, sans-serif;
+    padding: 1%;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.navbar-icon {
+    width: 36px;
+    height: auto;
+}
+
+.navbar-link {
+    color: red;
+    text-decoration: none;
+}
+
+.navbar-search-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.navbar-search-input {
+    height: 36px;
+    width: 600px;
+    padding-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 2px 0 0 2px;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.navbar-search-button {
+    height: 36px;
+    width: 50px;
+    border: none;
+    background-color: #f8f8f8;
+    border-left: 1px solid #ccc;
+    border-radius: 0 2px 2px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.navbar-search-button:hover {
+    background-color: #e8e8e8;
+}
+
+.navbar-search-icon {
+    width: 24px;
+    height: 24px;
+    fill: #606060;
+}
+
+.navbar-search-results {
+    background-color: white;
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-search-results li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.navbar-search-results li:hover {
+    background-color: #f1f1f1;
+}
+
+.navbar-user {
+    color: white;
+}
+

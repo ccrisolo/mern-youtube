@@ -4,7 +4,7 @@ import LoginForm from "../../components/LoginForm/LoginForm";
 import "./AuthPage.css";
 import YouTubeImg from "../../assets/YouTube2.png";
 
-const AuthPage = ({ setUser }) => {
+const AuthPage = ({ setLoggedInUser }) => {
     const [isLoginForm, setIsLoginForm] = useState(true);
 
     return (
@@ -19,13 +19,13 @@ const AuthPage = ({ setUser }) => {
             <div className='auth-form-wrapper'>
                 {isLoginForm ? (
                     <LoginForm
-                        setUser={setUser}
+                        setLoggedInUser={setLoggedInUser}
                         setIsLoginForm={setIsLoginForm}
                         isLoginForm={isLoginForm}
                     />
                 ) : (
                     <SignUpForm
-                        setUser={setUser}
+                        setLoggedInUser={setLoggedInUser}
                         setIsLoginForm={setIsLoginForm}
                         isLoginForm={isLoginForm}
                     />

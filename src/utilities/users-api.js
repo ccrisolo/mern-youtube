@@ -36,6 +36,7 @@ const BASE_URL = "/api/users";
 
 //DRY'd up version of the signUp and login functions above
 export function signUp(userData) {
+    console.log('userData', userData)
     return sendRequest(BASE_URL, "POST", userData);
 }
 

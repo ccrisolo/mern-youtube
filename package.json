@@ -18,6 +18,7 @@
         "dotenv": "^8.2.0",
         "express": "^4.17.1",
         "jsonwebtoken": "^8.5.1",
+        "lodash": "^4.17.21",
         "moment": "^2.29.4",
         "mongoose": "^5.13.3",
         "morgan": "^1.10.0",
@@ -29,8 +30,8 @@
         "web-vitals": "^1.1.2"
     },
     "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
+        "start": "export SET NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
+        "build": "export SET NODE_OPTIONS=--openssl-legacy-provider && react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
@@ -52,5 +53,15 @@
             "last 1 safari version"
         ]
     },
-    "proxy": "http://localhost:3001"
+    "proxy": "http://localhost:3001",
+    "devDependencies": {
+        "optimize-css-assets-webpack-plugin": "^6.0.1",
+        "sass-loader": "^13.3.2",
+        "style-loader": "^3.3.3",
+        "terser-webpack-plugin": "^5.3.9",
+        "url-loader": "^4.1.1",
+        "webpack-dev-middleware": "^6.1.1",
+        "webpack-manifest-plugin": "^5.0.0",
+        "workbox-webpack-plugin": "^7.0.0"
+    }
 }
