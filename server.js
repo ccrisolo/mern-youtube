@@ -2,10 +2,11 @@ const express = require("express");
 const path = require("path");
 const favicon = require("serve-favicon");
 const logger = require("morgan");
-const cors = require('cors');
-const axios = require('axios');
-
+const cors = require("cors");
+const axios = require("axios");
 require("dotenv").config();
+
+const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 
 // Connect to the database
 require("./config/database");
@@ -29,43 +30,50 @@ app.use("/api/users", require("./routes/api/users"));
 // New route to handle YouTube API requests
 app.get("/api/search", async (req, res) => {
     const { q } = req.query;
-    const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
-    
+
     try {
-        const response = await axios.get(`https://www.googleapis.com/youtube/v3/search`, {
-            params: {
-                part: 'snippet, statistics, status, contentDetails',
-                maxResults: 5,
-                q,
-                type: 'video',
-                key: API_KEY,
-            },
-        });
+        const response = await axios.get(
+            `https://www.googleapis.com/youtube/v3/search`,
+            {
+                params: {
+                    part: "snippet, id",
+                    maxResults: 5,
+                    q,
+                    type: "video",
+                    key: API_KEY,
+                },
+            }
+        );
         res.json(response.data);
     } catch (error) {
+        console.error(
+            "Error fetching search results",
+            error.response ? error.response.data : error.message
+        );
         console.error("Error fetching search results", error);
-        res.status(500).json({ error: 'Failed to fetch search results' });
+        res.status(500).json({ error: "Failed to fetch search results" });
     }
 });
 
 // Route to fetch most popular videos
 app.get("/api/most-popular-videos", async (req, res) => {
-    const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
-    
     try {
-        const response = await axios.get(`https://www.googleapis.com/youtube/v3/videos`, {
-            params: {
-                part: 'snippet, statistics, status, contentDetails',
-                chart: 'mostPopular',
-                regionCode: 'US',
-                maxResults: 25,
-                key: API_KEY,
-            },
-        });
+        const response = await axios.get(
+            `https://www.googleapis.com/youtube/v3/videos`,
+            {
+                params: {
+                    part: "snippet, statistics, status, contentDetails",
+                    chart: "mostPopular",
+                    regionCode: "US",
+                    maxResults: 25,
+                    key: API_KEY,
+                },
+            }
+        );
         res.json(response.data);
     } catch (error) {
         console.error("Error fetching most popular videos", error);
-        res.status(500).json({ error: 'Failed to fetch most popular videos' });
+        res.status(500).json({ error: "Failed to fetch most popular videos" });
     }
 });
 
