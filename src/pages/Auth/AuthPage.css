@@ -1,12 +1,13 @@
 @media only screen and (min-width: 700px) {
     .wrapper {
-        position: absolute;
+        position: relative;
         display: grid;
         grid-template-columns: 608px;
         grid-gap: 3px;
     }
     .youtube-img {
         height: auto;
+        width: auto;
         max-width: 100%;
         border-radius: 12px;
     }

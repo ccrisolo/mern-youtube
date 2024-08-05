@@ -1,98 +1,80 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import * as userService from "../../utilities/users-service";
-import axios from "axios";
-import YouTubeIcon from '../../assets/YouTubeIcon.png'
+import PropTypes from "prop-types";
+import YouTubeIcon from "../../assets/YouTubeIcon.png";
+import "./NavBar.css";
 
-export const NavBar = ({ user, setUser }) => {
-    const [searchTerm, setSearchTerm] = useState("");
-    const [searchResults, setSearchResults] = useState([]);
-
-    const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
-
-    const handleChange = async event => {
-        const searchTerm = event.target.value;
-        setSearchTerm(searchTerm);
-
-        if (searchTerm.trim() !== "") {
-            const results = await axios.get(
-                `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${searchTerm}&type=video&key=${API_KEY}`
-            );
-            console.log("search results", results);
-            setSearchResults(results.data.items);
-        } else {
-            setSearchResults([]);
-        }
-    };
-
-    const handleLogOut = () => {
-        //delegate log out to users-service
-        userService.logOut();
-        //update state will also cause a re-render
-        setUser(null);
-    };
+export const NavBar = props => {
+    const {
+        handleChange,
+        handleClick,
+        handleKeyPress,
+        handleClear,
+        searchTerm,
+        searchResults,
+    } = props;
 
     return (
-        <nav
-            style={{
-                display: "flex",
-                justifyContent: "space-evenly",
-                alignItems: "center",
-                marginTop: "15px",
-                backgroundColor: "rgb(19,19,19)",
-                fontFamily: "Roboto",
-                padding: "1%",
-                fontWeight:"bold",
-                fontSize:17
-            }}
-        >
-            <img src={YouTubeIcon} />
-            <Link style={{ color: "red", textDecoration: "none" }} to='/home'>
+        <nav className='navbar'>
+            <img src={YouTubeIcon} alt='YouTube Icon' className='navbar-icon' />
+            <Link className='navbar-link' to='/home'>
                 Home
             </Link>
-            <Link
-                style={{ color: "red", textDecoration: "none" }}
-                to='/home/favorites'
-            >
+            <Link className='navbar-link' to='/favorites'>
                 Favorites
             </Link>
-            &nbsp;&nbsp;
-            <div role='search' onSubmit={() => {}}>
+            <div className='navbar-search-wrapper'>
                 <input
                     type='text'
                     value={searchTerm}
                     onChange={handleChange}
+                    onKeyDown={handleKeyPress}
                     placeholder='Search'
-                    style={{
-                        height: "30px",
-                        width: "600px",
-                        paddingLeft: "10px",
-                        borderRadius: "10px",
-                    }}
+                    className='navbar-search-input'
                 />
-                <button
-                    style={{
-                        height: "36px",
-                        width: "50px",
-                        borderRadius: "10px",
-                    }}
-                >
-                    GO
+                <button className='clear-input-button' onClick={handleClear}>
+                    <svg
+                        viewBox='0 0 24 24'
+                        className='clear-input-icon'
+                        xmlns='http://www.w3.org/2000/svg'
+                        fill='none'
+                        stroke='currentColor'
+                        strokeWidth='2'
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                    >
+                        <line x1='18' y1='6' x2='6' y2='18' />
+                        <line x1='6' y1='6' x2='18' y2='18' />
+                    </svg>
                 </button>
-                <ul style={{ backgroundColor: "white", listStyle: "none" }}>
-                    {searchResults.map(result => (
-                        <li key={result.id.videoId}>{result.snippet.title}</li>
-                    ))}
-                </ul>
+                <button className='navbar-search-button' onClick={handleClick}>
+                    <svg viewBox='0 0 24 24' className='navbar-search-icon'>
+                        <path d='M10,2A8,8 0 0,1 18,10C18,11.85 17.36,13.55 16.24,14.88L21,19.64L19.64,21L14.88,16.24C13.55,17.36 11.85,18 10,18A8,8 0 0,1 2,10A8,8 0 0,1 10,2M10,4A6,6 0 0,0 4,10A6,6 0 0,0 10,16A6,6 0 0,0 16,10A6,6 0 0,0 10,4Z' />
+                    </svg>
+                </button>
+                {searchResults?.length > 0 && searchTerm && (
+                    <ul className='navbar-search-results'>
+                        {searchResults.map(result => (
+                            <li key={result.id.videoId} onClick={handleClick}>
+                                {result.snippet.title}
+                            </li>
+                        ))}
+                    </ul>
+                )}
             </div>
-            <span style={{ color: "white" }}>
-                Welcome
-                {/* {user.name} */}
-            </span>
-            {/* &nbsp;&nbsp;
-            <Link style={{color: 'red'}} to='' onClick={handleLogOut}>
-                Log Out
-            </Link> */}
+            {/* {user && (
+                <>
+                    <span className="navbar-user">Welcome {user.name}</span>
+                    <Link className="navbar-link" to="/" onClick={handleLogOut}>
+                        Log Out
+                    </Link>
+                </>
+            )} */}
         </nav>
     );
+};
+
+NavBar.propTypes = {
+    user: PropTypes.object,
+    setUser: PropTypes.func.isRequired,
 };

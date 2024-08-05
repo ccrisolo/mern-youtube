@@ -1,53 +1,16 @@
-import React, { useState, useEffect } from "react";
-import * as usersService from "../../utilities/users-service";
-import youtubeAPI from "../../utilities/youtube-api";
+import React from "react";
 import VideoList from "../../components/Videos/VideoList";
-import "../../styles/homePageStyle.css";
+import "./style.css";
 
-const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
+const UserHomePage = props => {
+    const {
+        selectedVideo,
+        popularVideos,
+        handleSelectedVideo,
+        setSelectedVideo,
+    } = props;
 
-const UserHomePage = () => {
-    const [popularVideos, setPopularVideos] = useState([]);
-    const [selectedVideo, setSelectedVideo] = useState(null);
-
-    async function getPopularVideoList() {
-        const response = await youtubeAPI.get("videos", {
-            params: {
-                part: "snippet, statistics, status, contentDetails",
-                chart: "mostPopular",
-                regionCode: "US",
-                maxResults: 25,
-                key: API_KEY,
-            },
-        });
-        console.log("getPopularVideoList response", response);
-        setPopularVideos(response.data.items);
-    }
-
-    function handleSelectedVideo(video) {
-        //takes selected thumbnail id and sets it to selectedVideo
-        setSelectedVideo(video.id);
-    }
-
-    function loadFirstVideo() {
-        let firstVideo =
-            popularVideos[Math.floor(Math.random() * popularVideos.length)];
-        setSelectedVideo(!firstVideo ? "" : firstVideo.id);
-    }
-
-    useEffect(() => {
-        getPopularVideoList();
-    }, []);
-
-    useEffect(() => {
-        loadFirstVideo();
-    }, [popularVideos]);
-
-    // async function handleCheckToken() {
-    //     const expDate = await usersService.checkToken();
-    //     return console.log(expDate);
-    // }
-
+    console.log("selectedVideo", selectedVideo);
     return (
         <div className='home-page-container'>
             <div className='iframe-container'>
@@ -57,8 +20,41 @@ const UserHomePage = () => {
                     width={"100%"}
                     height={"100%"}
                     title='Video Player'
-                    src={`https://www.youtube-nocookie.com/embed/${selectedVideo}`}
+                    src={`https://www.youtube-nocookie.com/embed/${selectedVideo?.id}`}
                 />
+                <div
+                    style={{
+                        padding: "2%",
+                    }}
+                >
+                    <span
+                        style={{
+                            fontWeight: "bold",
+                            fontSize: 24,
+                            lineClamp: 3,
+                            textOverflow: "ellipsis",
+                            color: "white",
+                        }}
+                    >
+                        {selectedVideo?.snippet?.title}
+                    </span>
+                    <div>
+                        <span
+                            style={{
+                                fontSize: 16,
+                                color: "white",
+                                fontWeight: "bold",
+                            }}
+                        >
+                            {selectedVideo?.snippet?.channelTitle}
+                        </span>
+                    </div>
+                    <div>
+                        <span style={{ fontSize: 16, color: "grey" }}>
+                            Views: {selectedVideo?.statistics?.viewCount}
+                        </span>
+                    </div>
+                </div>
             </div>
             <div className='video-list-container'>
                 <ul
@@ -66,7 +62,7 @@ const UserHomePage = () => {
                         color: "white",
                     }}
                 >
-                    <h2 style={{ textAlign: "center" }}>Popular Videos</h2>
+                    <h2 style={{ textAlign: "center" }}>Most Popular Videos</h2>
                     <VideoList
                         videos={popularVideos}
                         handleSelectedVideo={handleSelectedVideo}

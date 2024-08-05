@@ -38,12 +38,19 @@ export default class SignUpForm extends Component {
         return (
             <div className='wrapper'>
                 <div className='form-container'>
-                    <h2 className='app-name'>YouTube</h2>
-                    <div>
-                        <h1 className='heading'>
-                            Get access to videos from around the world!
-                        </h1>
-                    </div>
+                <div
+                    style={{
+                        display: "flex",
+                        alignItems: "center",
+                        flexDirection: "column",
+                        color: "white",
+                        fontFamily: "Roboto",
+                        paddingTop:"8%"
+                    }}
+                >
+                    <h1>Welcome to my YouTube Clone.</h1>
+                    <h2>Sign in to access additional features</h2>
+                </div>
                     <form autoComplete='off' onSubmit={this.handleSubmit}>
                         <div>
                             <label>Name</label>
