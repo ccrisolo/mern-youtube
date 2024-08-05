@@ -108,7 +108,8 @@ const SearchResultsPage = ({ handleSelectedVideo }) => {
             className="video-thumbnail"
             key={id}
             onClick={() => {
-                handleSelectedVideo(video?.id?.videoId);
+                handleSelectedVideo(video);
+                // handleSelectedVideo(video?.id?.videoId);
                 history.push(`/home/play/${video?.id?.videoId}`);
             }}
         >

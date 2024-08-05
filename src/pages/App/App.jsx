@@ -20,12 +20,14 @@ export default function App() {
 
     function handleSelectedVideo(video) {
         //takes selected thumbnail id and sets it to selectedVideo
-        setSelectedVideo(video.id);
+        console.log('video',video)
+        setSelectedVideo(video);
     }
 
     function loadFirstVideo() {
         let firstVideo =
             popularVideos[Math.floor(Math.random() * popularVideos.length)];
+            console.log('frstvideo', firstVideo)
         setSelectedVideo(!firstVideo ? "" : firstVideo);
     }
 
@@ -33,9 +35,10 @@ export default function App() {
         debounce(async term => {
             if (term.trim() !== "") {
                 try {
-                    const results = await axios.get(`/api/search`, {
-                        params: { q: term },
+                    const results = await axios.get("/api/search", {
+                        params: { q: term, },
                     });
+                    console.log('results', results)
                     setSearchResults(results.data.items);
                   
                 } catch (error) {
@@ -55,7 +58,6 @@ export default function App() {
     };
 
     const handleClick = async () => {
-        fetchSearchResults(searchTerm);
         history.push({
             pathname: "/search-results",
             state: { searchResults: searchResults },
@@ -63,10 +65,14 @@ export default function App() {
         setSearchResults([])
     };
 
+    const handleClear = () => {
+        setSearchTerm("")
+    }
+
     async function handleKeyPress(event) {
         if (event.key === "Enter") {
             await handleClick();
-            setSearchTerm("")
+            setSearchResults([])
         }
     }
     
@@ -96,6 +102,7 @@ export default function App() {
                 handleChange={handleChange}
                 handleClick={handleClick}
                 handleKeyPress={handleKeyPress}
+                handleClear={handleClear}
                 searchTerm={searchTerm}
                 searchResults={searchResults}
             />
