@@ -11,6 +11,7 @@ import axios from "axios";
 import { debounce } from "lodash";
 
 export default function App() {
+    console.log('adding to create new commit')
     const [loggedInUser, setLoggedInUser] = useState(getUser());
     const [popularVideos, setPopularVideos] = useState([]);
     const [selectedVideo, setSelectedVideo] = useState(null);
