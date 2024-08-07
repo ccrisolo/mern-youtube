@@ -27,7 +27,7 @@ export default function App() {
     function loadFirstVideo() {
         let firstVideo =
             popularVideos[Math.floor(Math.random() * popularVideos.length)];
-            console.log('frstvideo', firstVideo)
+            console.log('firstvideo', firstVideo)
         setSelectedVideo(!firstVideo ? "" : firstVideo);
     }
 
